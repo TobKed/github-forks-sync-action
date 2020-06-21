@@ -23,6 +23,9 @@ inputs:
     description: 'Destination branch to push changes.'
     default: 'master'
     required: false
+  force:
+    description: 'Determines if force push is used'
+    required: false
 runs:
   using: 'node12'
   main: 'start.js'
