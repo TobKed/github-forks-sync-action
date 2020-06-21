@@ -15,6 +15,14 @@ inputs:
     description: 'Repository name to push. Default or empty value represents current github repository (${GITHUB_REPOSITORY})'
     default: ''
     required: false
+  upstream_branch:
+    description: 'Source branch from which changes will be pushed.'
+    default: 'master'
+    required: false
+  target_branch:
+    description: 'Destination branch to push changes.'
+    default: 'master'
+    required: false
 runs:
   using: 'node12'
   main: 'start.js'
