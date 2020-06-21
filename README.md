@@ -15,6 +15,7 @@ jobs:
         upstream_branch: master
         target_branch: master
         force: true
+        tags: true
 ```
 
 ### Inputs
@@ -27,4 +28,4 @@ jobs:
 | upstream_branch | string | 'master' | Source branch from which changes will be pushed. |
 | target_branch | string | 'master' | Destination branch to push changes. |
 | force | boolean | false | Determines if force push is used. |
-
+| tags | boolean | false | Determines if `--tags` is used. |

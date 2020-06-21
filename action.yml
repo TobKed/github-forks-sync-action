@@ -26,6 +26,9 @@ inputs:
   force:
     description: 'Determines if force push is used'
     required: false
+  tags:
+    description: 'Determines if --tags is used'
+    required: false
 runs:
   using: 'node12'
   main: 'start.js'
