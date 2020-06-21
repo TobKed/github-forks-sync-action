@@ -1,10 +1,11 @@
 #!/bin/sh
 set -e
 
-INPUT_BRANCH=${INPUT_BRANCH:-master}
+INPUT_TARGET_BRANCH=${INPUT_TARGET_BRANCH:-master}
+INPUT_UPSTREAM_BRANCH=${INPUT_UPSTREAM_BRANCH:-master}
 TARGET_REPOSITORY=${INPUT_TARGET_REPOSITORY:-$GITHUB_REPOSITORY}
 
-echo "Synchronizing repostiory ${INPUT_UPSTREAM_REPOSITORY} with ${TARGET_REPOSITORY}";
+echo "Synchronizing repostiory ${TARGET_REPOSITORY}:${INPUT_TARGET_BRANCH} with ${INPUT_UPSTREAM_REPOSITORY}:${INPUT_UPSTREAM_BRANCH}";
 
 [ -z "${INPUT_GITHUB_TOKEN}" ] && {
     echo 'Missing input "github_token: ${{ secrets.GITHUB_TOKEN }}".' 1>&2;
@@ -23,4 +24,4 @@ target_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${TARGET_R
 
 git clone ${upstream_repo}
 cd ${upstream_dir}
-git push --force ${target_repo} master
+git push --force ${target_repo} ${INPUT_UPSTREAM_BRANCH}:${INPUT_TARGET_BRANCH}
