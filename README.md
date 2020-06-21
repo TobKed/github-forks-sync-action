@@ -1,5 +1,21 @@
 # GitHub Action to synchronise forks 
 
+### Example Workflow file
+
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      uses: TobKed/github-forks-sync-action@master
+      with:
+        github_token: ${{ secrets.GH_TOKEN }}
+        upstream_repository: apache/airflow
+        target_repository: TobKed/airflow
+        upstream_branch: master
+        target_branch: master
+```
+
 ### Inputs
 
 | name | value | default | description |
