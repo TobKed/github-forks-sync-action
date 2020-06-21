@@ -14,6 +14,7 @@ jobs:
         target_repository: TobKed/airflow
         upstream_branch: master
         target_branch: master
+        force: true
 ```
 
 ### Inputs
@@ -25,3 +26,5 @@ jobs:
 | target_repository | string | | Repository name. Default or empty repository name represents current github repository. If you want to push to other repository, you should make a [personal access token](https://github.com/settings/tokens) and use it as the `github_token` input. |
 | upstream_branch | string | 'master' | Source branch from which changes will be pushed. |
 | target_branch | string | 'master' | Destination branch to push changes. |
+| force | boolean | false | Determines if force push is used. |
+
