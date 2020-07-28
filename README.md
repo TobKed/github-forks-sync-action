@@ -36,7 +36,7 @@ jobs:
 
 GitHub automatically creates a `GITHUB_TOKEN` secret to use in your workflow. 
 You can use the `GITHUB_TOKEN` to authenticate in a workflow run. 
-`github_token` input can passed in `${{ secrets.GITHUB_TOKEN }}`
+To learn more about this secret check the [official docs](https://docs.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token).
 
 #### Pull from private repository and/or push to other repository
 
