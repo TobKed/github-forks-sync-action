@@ -40,7 +40,7 @@ To learn more about creating and using secrets check the [official docs](https:/
 
 GitHub automatically creates a `GITHUB_TOKEN` secret to use in your workflow. 
 You can use the `GITHUB_TOKEN` to authenticate in a workflow run. 
-`github_token` input can passed in `${{ secrets.GITHUB_TOKEN }}`
+`github_token` input can be passed in as `${{ secrets.GITHUB_TOKEN }}`.
 To learn more about this secret check the [official docs](https://docs.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token).
 
 #### Pull from private repository and/or push to other repository
@@ -52,7 +52,7 @@ Then it can be passed as in the example below:
 github_token: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
 ```
 
-To learn more about this creating PAT check the [official docs](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+To learn more about this creating PAT check the [official docs](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
 
 
 ## License
