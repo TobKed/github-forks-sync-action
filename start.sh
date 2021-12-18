@@ -26,7 +26,7 @@ if ${INPUT_FORCE}; then
 fi
 
 if ${INPUT_TAGS}; then
-    _TAGS='--tags'
+    _TAGS='--follow-tags --tags'
 fi
 
 upstream_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${INPUT_UPSTREAM_REPOSITORY}.git"
@@ -35,4 +35,4 @@ target_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${TARGET_R
 
 git clone ${upstream_repo}
 cd ${upstream_dir}
-git push $_FORCE_OPTION --follow-tags $_TAGS ${target_repo} ${INPUT_UPSTREAM_BRANCH}:${INPUT_TARGET_BRANCH}
+git push $_FORCE_OPTION $_TAGS ${target_repo} ${INPUT_UPSTREAM_BRANCH}:${INPUT_TARGET_BRANCH}
