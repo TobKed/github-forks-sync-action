@@ -8,9 +8,10 @@ INPUT_FORCE=${INPUT_FORCE:-false}
 INPUT_TAGS=${INPUT_TAGS:-false}
 _FORCE_OPTION=''
 
-echo "Synchronizing repostiory ${TARGET_REPOSITORY}:${INPUT_TARGET_BRANCH} with ${INPUT_UPSTREAM_REPOSITORY}:${INPUT_UPSTREAM_BRANCH}";
+echo "Synchronizing repository ${TARGET_REPOSITORY}:${INPUT_TARGET_BRANCH} with ${INPUT_UPSTREAM_REPOSITORY}:${INPUT_UPSTREAM_BRANCH}";
 
 [ -z "${INPUT_GITHUB_TOKEN}" ] && {
+    # shellcheck disable=SC2016
     echo 'Missing input "github_token: ${{ secrets.GITHUB_TOKEN }}".' 1>&2;
     exit 1;
 };
@@ -33,6 +34,6 @@ upstream_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${INPUT_
 upstream_dir=${INPUT_UPSTREAM_REPOSITORY##*/}
 target_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${TARGET_REPOSITORY}.git"
 
-git clone ${upstream_repo}
-cd ${upstream_dir}
-git push $_FORCE_OPTION --follow-tags $_TAGS ${target_repo} ${INPUT_UPSTREAM_BRANCH}:${INPUT_TARGET_BRANCH}
+git clone "${upstream_repo}"
+cd "${upstream_dir}"
+git push $_FORCE_OPTION --follow-tags $_TAGS "${target_repo}" "${INPUT_UPSTREAM_BRANCH}:${INPUT_TARGET_BRANCH}"

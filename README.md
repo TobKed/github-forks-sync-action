@@ -1,4 +1,4 @@
-# GitHub Action to synchronise forks 
+# GitHub Action to synchronise forks
 
 ### Example Workflow file
 
@@ -33,13 +33,13 @@ jobs:
 ### GitHub Token
 
 GitHub Token is required to authenticate operations on the repository/repositories.
-It should be stored as a secret. 
+It should be stored as a secret.
 To learn more about creating and using secrets check the [official docs](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
 
 #### Pull from public repository and push to current repository
 
-GitHub automatically creates a `GITHUB_TOKEN` secret to use in your workflow. 
-You can use the `GITHUB_TOKEN` to authenticate in a workflow run. 
+GitHub automatically creates a `GITHUB_TOKEN` secret to use in your workflow.
+You can use the `GITHUB_TOKEN` to authenticate in a workflow run.
 `github_token` input can be passed in as `${{ secrets.GITHUB_TOKEN }}`.
 To learn more about this secret check the [official docs](https://docs.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token).
 
