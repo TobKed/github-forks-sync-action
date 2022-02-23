@@ -37,4 +37,4 @@ target_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${TARGET_R
 git clone "${upstream_repo}"
 cd "${upstream_dir}"
 git checkout "${INPUT_UPSTREAM_BRANCH}"
-git push $_FORCE_OPTION $_TAGS "${target_repo}" "${INPUT_UPSTREAM_BRANCH}:${INPUT_TARGET_BRANCH}"
+git push "${_FORCE_OPTION}" "${_TAGS}" "${target_repo}" "${INPUT_UPSTREAM_BRANCH}:${INPUT_TARGET_BRANCH}"
