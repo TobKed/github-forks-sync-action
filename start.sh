@@ -38,3 +38,4 @@ git clone "${upstream_repo}" -b "${INPUT_UPSTREAM_BRANCH}" --single-branch
 cd "${upstream_dir}"
 # shellcheck disable=SC2086
 git push $_FORCE_OPTION $_TAGS "${target_repo}" "${INPUT_UPSTREAM_BRANCH}:${INPUT_TARGET_BRANCH}"
+rm -rf "../${upstream_dir}"
