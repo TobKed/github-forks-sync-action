@@ -1,5 +1,19 @@
 # GitHub Action to synchronise forks
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+  - [Example Workflow file](#example-workflow-file)
+  - [Inputs](#inputs)
+  - [GitHub Token](#github-token)
+    - [Pull from public repository and push to current repository](#pull-from-public-repository-and-push-to-current-repository)
+    - [Pull from private repository and/or push to other repository](#pull-from-private-repository-andor-push-to-other-repository)
+- [License](#license)
+- [No affiliation with GitHub Inc.](#no-affiliation-with-github-inc)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ### Example Workflow file
 
 ```yaml
