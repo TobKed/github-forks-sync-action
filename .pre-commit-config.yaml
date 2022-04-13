@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.2.0
     hooks:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
@@ -10,3 +10,14 @@ repos:
     rev: v0.8.0.4
     hooks:
     -   id: shellcheck
+-   repo: https://github.com/thlorenz/doctoc.git
+    rev: v2.1.0
+    hooks:
+    -   id: doctoc
+        name: Add TOC for md files
+        files: \.md$
+        args:
+          - "--maxlevel"
+          - "4"
+          - "--title"
+          - "**Table of Contents**"
