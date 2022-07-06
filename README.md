@@ -90,24 +90,13 @@ jobs:
         id: set-matrix
         run: |
           upstream_repo="https://${GITHUB_ACTOR}:${INPUT_GITHUB_TOKEN}@github.com/${INPUT_UPSTREAM_REPOSITORY}.git"
-          upstream_dir=${INPUT_UPSTREAM_REPOSITORY##*/}
-
-          git clone "${upstream_repo}"
-          cd "${upstream_dir}"
-
-          JSON="{\"branch\":["
-
-          for branch in `git branch -a | grep remotes | grep -v HEAD`; do
-              branch_trimmed=$(echo -e $branch | sed -e "s/remotes\/origin\///g")
-              JSON="$JSON\"${branch_trimmed}\","
-          done
-
-          if [[ $JSON == *, ]]; then
-            JSON="${JSON%?}"
-          fi
-          JSON="$JSON]}"
-
-          echo $JSON | jq
+          
+          # these jq scripts will produce the same matrix jobs by default
+          # choose the one that works for any additional values that you may need to build your matrix with
+          # jq_script='{ "branch": [inputs | split("\n") | .[] | gsub(".*refs/heads/"; "")] }'   # {"branch":["$branch_name_1","$branch_name_2"]}
+          jq_script='[inputs | split("\n") | .[] | gsub(".*refs/heads/"; "") | { "branch": . }]' # [{"branch":"$branch_name_1"},{"branch":"$branch_name_2"}]
+          
+          JSON="$(git ls-remote --heads "$upstream_repo" | jq -McnR "$jq_script")"
 
           echo "::set-output name=matrix::$( echo "$JSON" )"
 
