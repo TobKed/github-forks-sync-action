@@ -101,7 +101,9 @@ jobs:
           # debug matrix pretty json formatted output
           jq --monochrome-output . -- <<< "$JSON"
 
-          echo "::set-output name=matrix::$( echo "$JSON" )"
+          # set output variable named 'matrix' for use in subsequent jobs that 'needs' this job.
+          # https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs
+          echo "::set-output name=matrix::$JSON"
 
         env:
           INPUT_GITHUB_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
