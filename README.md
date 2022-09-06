@@ -98,6 +98,9 @@ jobs:
 
           JSON="$(git ls-remote --heads "$upstream_repo" | jq -McnR "$jq_script")"
 
+          # debug matrix pretty json formatted output
+          jq --monochrome-output . -- <<< "$JSON"
+
           echo "::set-output name=matrix::$( echo "$JSON" )"
 
         env:
