@@ -22,11 +22,11 @@ echo "Synchronizing repository ${TARGET_REPOSITORY}:${INPUT_TARGET_BRANCH} with 
     exit 1;
 };
 
-if ${INPUT_FORCE}; then
+if [ "${INPUT_FORCE}" = "true" ]; then
     _FORCE_OPTION='--force'
 fi
 
-if ${INPUT_TAGS}; then
+if [ "${INPUT_TAGS}" = "true" ]; then
     _TAGS='--follow-tags --tags'
 fi
 
