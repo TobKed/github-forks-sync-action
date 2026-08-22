@@ -20,3 +20,10 @@ repos:
           - "4"
           - "--title"
           - "**Table of Contents**"
+-   repo: local
+    hooks:
+    -   id: no-input-eval
+        name: Inputs must be compared, not executed
+        language: pygrep
+        entry: 'if \$\{?INPUT_'
+        files: ^start\.sh$

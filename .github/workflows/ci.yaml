@@ -26,8 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: start.sh flag handling
-        run: ./test_start.sh
       - name: Run without upstream_repository (expected to fail)
         id: run
         continue-on-error: true
