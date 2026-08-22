@@ -30,5 +30,15 @@ inputs:
     description: 'Determines if --tags is used'
     required: false
 runs:
-  using: 'node16'
-  main: 'start.js'
+  using: 'composite'
+  steps:
+    - run: "${GITHUB_ACTION_PATH}/start.sh"
+      shell: bash
+      env:
+        INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
+        INPUT_UPSTREAM_REPOSITORY: ${{ inputs.upstream_repository }}
+        INPUT_TARGET_REPOSITORY: ${{ inputs.target_repository }}
+        INPUT_UPSTREAM_BRANCH: ${{ inputs.upstream_branch }}
+        INPUT_TARGET_BRANCH: ${{ inputs.target_branch }}
+        INPUT_FORCE: ${{ inputs.force }}
+        INPUT_TAGS: ${{ inputs.tags }}
