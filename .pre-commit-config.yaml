@@ -25,5 +25,5 @@ repos:
     -   id: no-input-eval
         name: Inputs must be compared, not executed
         language: pygrep
-        entry: 'if \$\{?INPUT_'
+        entry: '(if|elif|while|until) +"?\$\{?INPUT_'
         files: ^start\.sh$
